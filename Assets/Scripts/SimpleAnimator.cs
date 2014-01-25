@@ -17,6 +17,9 @@ public class SimpleAnimator : MonoBehaviour {
 	void Update () {
 		int index = (int)(Time.timeSinceLevelLoad * framesPerSecond);
 		index = index % sprites.Length;
-		spriteRenderer.sprite = sprites[index];
+		if(BetsyController.onGround)
+			spriteRenderer.sprite = sprites[index];
+		else
+			spriteRenderer.sprite = sprites[0];
 	}
 }
